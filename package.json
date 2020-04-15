@@ -1,12 +1,16 @@
 {
   "name": "fortify",
+  "homepage": "https://github.com/gauravmalik1388/Fortify",
   "version": "1.0.0",
   "description": "Learning about getting different api's on my website",
   "main": "index.js",
   "scripts": {
     "dev": "webpack --mode development",
     "build": "webpack --mode production",
-    "start": "webpack-dev-server --mode development --open"
+    "start": "webpack-dev-server --mode development --open",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
+
   },
   "repository": {
     "type": "git",
@@ -17,9 +21,9 @@
   "bugs": {
     "url": "https://github.com/gauravmalik1388/Fortify/issues"
   },
-  "homepage": "https://github.com/gauravmalik1388/Fortify#readme",
   "dependencies": {
     "axios": "^0.19.2",
+    "gh-pages": "^2.2.0",
     "save-dev": "0.0.1-security",
     "webpack": "^4.42.1"
   },
