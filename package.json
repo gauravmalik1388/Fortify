@@ -1,0 +1,37 @@
+{
+  "name": "fortify",
+  "version": "1.0.0",
+  "description": "Learning about getting different api's on my website",
+  "main": "index.js",
+  "scripts": {
+    "dev": "webpack --mode development",
+    "build": "webpack --mode production",
+    "start": "webpack-dev-server --mode development --open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gauravmalik1388/Fortify.git"
+  },
+  "author": "Gaurav Malik",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gauravmalik1388/Fortify/issues"
+  },
+  "homepage": "https://github.com/gauravmalik1388/Fortify#readme",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "save-dev": "0.0.1-security",
+    "webpack": "^4.42.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.9.5",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.1.0",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "html-webpack-plugin": "^4.2.0",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.10.3"
+  }
+}
