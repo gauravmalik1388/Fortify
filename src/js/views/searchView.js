@@ -1,56 +1,55 @@
 import {elements} from './base'
 
-
+//input value
 export const getinput=()=>elements.searchinput.value;
 
+
+
+
+//clean input value
 export const removeinput=()=>{
-
 elements.searchinput.value='';
-
-
-
 };
 
+
+
+
+//limit the length of the title
 const limitthetitle=(title,limit=17)=>{
 const array1=[];
 if(title.length>17){
-
 title.split('').reduce((acc,cur)=>{
-
-
 if(acc+cur.length<17){
 array1.push(cur);
-
-
-
 }
-
 return acc+cur.length;
-
-
 },0)
-console.log(array1);
 return `${array1.join(' ')}....`
-
-
-
-
-
 }
-
 return title;
+};
 
 
 
+
+//clear the innerhtml tages
+
+
+export const clearlist = () => {
+
+    console.log("Gaurav");
+    elements.searchResList.innerHTML = ' ';
+    elements.searchrespages.innerHTML = '';
+};
+
+export const removelist138 =()=>{
+
+ elements.seachres.innerHTML = ' ';
 
 
 };
 
-export const clearlist =()=>{
-elements.searchResList.innerHTML = '';
-
-};
-
+//put receipes on the html
 
 const renderReceipe=receipe =>{
 
@@ -68,25 +67,57 @@ const markup =`<li>
                 </li>`;
 
 
-                elements.searchResList.insertAdjacentHTML('beforebegin',markup);
+                elements.searchResList.insertAdjacentHTML('afterbegin',markup);
+};
+
+
+//Create button from data to html
+const createButton = (page, type) => `
+    <button class="btn-inline results__btn--${type}" data-goto=${type === 'prev' ? page - 1 : page + 1}>
+        <span>Page ${type === 'prev' ? page - 1 : page + 1}</span>
+        <svg class="search__icon">
+            <use href="img/icons.svg#icon-triangle-${type === 'prev' ? 'left' : 'right'}"></use>
+        </svg>
+    </button>
+`;
 
 
 
+///logic behind buttons
 
+const renderbutton=(page,totalreceipes,ResperPage)=>{
+	
+const pages =Math.ceil(totalreceipes/ResperPage);
 
+let button;
+if(page===1&&pages>1)
 
-
-
-
+{
+	console.log('Hello45');
+//Go to next
+button=createButton(page,'next');
 }
+else if(page<pages){
+console.log('Hello48');
+//go to next and previous
+button=`${createButton(page,'prev')}${createButton(page,'next')};
+`;
+}
+else if(pages===page &&pages>1){
+button=createButton(page,'prev');
+}
+elements.searchrespages.insertAdjacentHTML('afterbegin',button);
+} 
 
-export const renderResults=receipes =>{
-
-console.log(11 + '' + receipes);
-receipes.forEach(renderReceipe);
 
 
 
 
-
+//main function for processing the receipes from the controller
+export const renderResults=(receipes,page=1,ResperPage=10 )=>{
+console.log(receipes);
+const start = (page-1)*ResperPage;
+const end = page * ResperPage ;
+receipes.slice(start,end).forEach(renderReceipe);
+renderbutton(page,receipes.length,ResperPage);
 }
