@@ -1,9 +1,12 @@
 // Global app controller
 
 import search from './models/search';
+import  receipe from './models/receipe'
+import  list from './models/list'
 import {elements,renderimage,removeloader} from './views/base';
 import * as searchview from './views/searchview';
-import  receipe from './models/receipe'
+import * as receipeview from './views/Receipeview';
+
 const state ={};
 
 
@@ -17,6 +20,7 @@ state.search=new search(query);
 //3 prepare ui for display
 searchview.removeinput();
 searchview.clearlist();
+//searchview.cleanpreviouspagedata();
 renderimage(elements.seachres);
 //4search for receipes
 await state.search.getresults();
@@ -40,7 +44,8 @@ console.log(id);
 
 if(id){
 //prepare ui for changes
-
+receipeview.clearReceipe();
+renderimage(elements.Receipedetailingredinets);
 //create new receipe object
 state.receipes =new receipe(id);
 //get receipe dat
@@ -64,7 +69,8 @@ catch(err){
 }
 
 //Render Receipe
-
+removeloader(elements.Receipedetailingredinets);
+receipeview.renderingredients(state.receipes);
 }
 
 
@@ -89,6 +95,8 @@ console.log(btn);
 if(btn){
 
 const goto = parseInt(btn.dataset.goto,10);
+
+//searchview.removelist138();
 searchview.clearlist();
 searchview.renderResults(state.search.result,goto);
 }

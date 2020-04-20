@@ -4,8 +4,9 @@ searchinput:document.querySelector('.search__field'),
 searchform:document.querySelector('.search'),
 searchResList:document.querySelector('.results__list'),
 seachres:document.querySelector('.results'),
-searchrespages:document.querySelector('.results__pages')
-
+searchrespages:document.querySelector('.results__pages'),
+//Receipes
+Receipedetailingredinets:document.querySelector('.recipe')
 
 };
 

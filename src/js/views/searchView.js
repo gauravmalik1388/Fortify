@@ -34,12 +34,20 @@ return title;
 
 //clear the innerhtml tages
 
-export const clearlist =()=>{
-elements.searchResList.innerHTML = '';
-elements.searchrespages.innerHTML = '';
+
+export const clearlist = () => {
+
+    console.log("Gaurav");
+    elements.searchResList.innerHTML = ' ';
+    elements.searchrespages.innerHTML = '';
 };
 
+export const removelist138 =()=>{
 
+ elements.seachres.innerHTML = ' ';
+
+
+};
 
 //put receipes on the html
 
@@ -59,7 +67,7 @@ const markup =`<li>
                 </li>`;
 
 
-                elements.searchResList.insertAdjacentHTML('beforebegin',markup);
+                elements.searchResList.insertAdjacentHTML('afterbegin',markup);
 };
 
 
@@ -78,7 +86,7 @@ const createButton = (page, type) => `
 ///logic behind buttons
 
 const renderbutton=(page,totalreceipes,ResperPage)=>{
-	console.log('Hello');
+	
 const pages =Math.ceil(totalreceipes/ResperPage);
 
 let button;

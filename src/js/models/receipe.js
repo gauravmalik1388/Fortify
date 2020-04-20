@@ -14,7 +14,13 @@ async getreceipe(){
 try{
 
 const res =await axios(`https://forkify-api.herokuapp.com/api/get?rId=${this.id}`);
+console.log(res);
 this.ingredients =res.data.recipe.ingredients;
+this.title=res.data.recipe.title;
+this.author=res.data.recipe.publisher;
+this.img=res.data.recipe.image_url;
+this.url=res.data.recipe.source_url;
+
 
 
 
@@ -64,11 +70,11 @@ ingredients=ingredients.replace(unit,unitsShort[i]);
 //remove parenthesis
     ingredients = ingredients.replace(/ *\([^)]*\) */g, ' ');
 //ingredients =ingredients.replace(/[()]/g, ''); 
-console.log(ingredients);
+
 const arry=ingredients.split(' ');
-console.log(arry);
-const unitIndex =arry.findIndex(el2=>unitsShort.includes(el2));
-console.log(unitIndex);
+
+const unitIndex =arry.findIndex(el2=>units.includes(el2));
+
 let obj;
 
 if(unitIndex>-1){
@@ -107,7 +113,7 @@ ingredients
 }}
 
 
-console.log(obj);
+
 
 return obj;
 //
