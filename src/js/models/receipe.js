@@ -126,7 +126,15 @@ console.log(this.ingredients);
 };
 //end of parse
 
+updateserving(type){
+console.log(type);
+const servingupdator =
+type==='dec'?this.serving-1:this.serving+1;
 
+this.serving=servingupdator;
+
+console.log(this.serving);
+}
 
 //end of class
 }

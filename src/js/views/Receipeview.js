@@ -1,5 +1,5 @@
 import {elements} from './base';
-
+import {Fraction} from 'fractional'
 
 export const clearReceipe =()=>{
 
@@ -10,6 +10,30 @@ elements.Receipedetailingredinets.innerHTML= '' ;
 
 } ;
 
+const format=count=>{
+//destructring
+
+if(count){ 
+const [int,dec]=count.toString().split('.').map(el2=>parseInt(el2,10));
+if(!dec) return count;
+
+
+if(int ===0){
+const fr =new Fraction(dec);
+return `${fr.numerator}/${fr.denominator}`;
+}
+else {
+console.log(dec);
+const fr =new Fraction(count-int);
+return `${int} ${fr.numerator}/${fr.denominator}`;
+
+}
+
+
+}
+
+return '?';
+};
 
 const createingredients=ingredients=>
 `
@@ -17,8 +41,8 @@ const createingredients=ingredients=>
                         <svg class="recipe__icon">
                             <use href="img/icons.svg#icon-check"></use>
                         </svg>
-                        <div class="recipe__count">${ingredients.count}</div>
-                        <div class="recipe__ingredient">
+                              <div class="recipe__count">${format(ingredients.count)}</div>
+                          <div class="recipe__ingredient">
                             <span class="recipe__unit">${ingredients.unit}</span>
                           ${ingredients.ingredients}
                         </div>
@@ -28,7 +52,7 @@ const createingredients=ingredients=>
 ;
 
 export const renderingredients=receipe=>{
-console.log(receipe.title);
+
 const markup=`<figure class="recipe__fig">
                 <img src="${receipe.img}" alt="${receipe.title}" class="recipe__img">
                 <h1 class="recipe__title">
@@ -51,12 +75,12 @@ const markup=`<figure class="recipe__fig">
                     <span class="recipe__info-text"> servings</span>
 
                     <div class="recipe__info-buttons">
-                        <button class="btn-tiny">
+                        <button class="btn-tiny btn-dec">
                             <svg>
                                 <use href="img/icons.svg#icon-circle-with-minus"></use>
                             </svg>
                         </button>
-                        <button class="btn-tiny">
+                        <button class="btn-tiny btn-inc">
                             <svg>
                                 <use href="img/icons.svg#icon-circle-with-plus"></use>
                             </svg>

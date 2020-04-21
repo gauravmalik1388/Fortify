@@ -40,12 +40,18 @@ controlSearch();
 const ControlReceipe = async () => {
 
 const id = window.location.hash.replace('#','');
-console.log(id);
+
 
 if(id){
 //prepare ui for changes
 receipeview.clearReceipe();
 renderimage(elements.Receipedetailingredinets);
+
+//highlight selected item
+
+searchview.highlighted(id);
+
+
 //create new receipe object
 state.receipes =new receipe(id);
 //get receipe dat
@@ -106,6 +112,24 @@ searchview.renderResults(state.search.result,goto);
 });
 
 
+window.l=new list();
+l.additem()
+
+//increase or dec the servings
+
+elements.Receipedetailingredinets.addEventListener('click',el2=>{
+
+if(el2.target.matches('.btn-dec ,.btn-dec *')){
+	console.log('Hi');
+state.receipe.updateserving('dec');
 
 
+}
+else if(el2.target.matches('.btn-inc ,.btn-inc *')) {
 
+state.receipe.updateserving('dec');
+
+}
+
+
+});

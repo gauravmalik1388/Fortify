@@ -44,10 +44,28 @@ export const clearlist = () => {
 
 export const removelist138 =()=>{
 
+
+
+
  elements.seachres.innerHTML = ' ';
 
 
 };
+
+//greyed out of highlight the one that is active
+
+export const highlighted = id =>{
+
+
+const array =Array.from(document.querySelectorAll('.results__link'));
+
+array.forEach(el2=>{el2.classList.remove('results__link--active')});
+
+
+document.querySelector(`a[href="#${id}"]`).classList.add('results__link--active');
+
+};
+
 
 //put receipes on the html
 
@@ -55,7 +73,7 @@ const renderReceipe=receipe =>{
 
 	
 const markup =`<li>
-                    <a class="results__link results__link--active" href="#${receipe.recipe_id}">
+                    <a class="results__link" href="#${receipe.recipe_id}">
                         <figure class="results__fig">
                             <img src="${receipe.image_url}" alt="Test">
                         </figure>

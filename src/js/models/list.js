@@ -15,7 +15,7 @@ additems(count,unit,ingredients){
 
 const item={
 
-id=uniqid(),
+id:uniqid(),
 count,
 unit,
 ingredients
@@ -31,7 +31,7 @@ return list;
 
 deleteitem(id){
 
-const delitem=this.item.findIndex(el=>el.id);
+const delitem=this.item.findIndex(el=>el.id===id);
 
 this.list.splice(delitem);
 
