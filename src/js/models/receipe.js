@@ -121,15 +121,24 @@ return obj;
 
   }) 
 this.ingredients=newingredient;
-console.log(this.ingredients);
+
 
 };
 //end of parse
 
 updateserving(type){
-console.log(type);
-const servingupdator =
-type==='dec'?this.serving-1:this.serving+1;
+
+const servingupdator =type==='dec'?this.serving-1:this.serving+1;
+
+this.ingredients.forEach(ing=>{
+
+ing.count=ing.count*(servingupdator/this.serving);
+
+
+});
+
+
+
 
 this.serving=servingupdator;
 

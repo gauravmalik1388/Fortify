@@ -151,7 +151,23 @@ elements.Receipedetailingredinets.innerHTML='';
 }
 
 
+export const update_Serving_ingredients=receipe=>{
+console.log('Hellooooooooooooooooooooooo');
+//Updating the servings
+document.querySelector('.recipe__info-data--people').textContent =receipe.serving;
 
+//update the count of ingredients
+const arrayofcount=Array.from(document.querySelectorAll('.recipe__count'));
+
+arrayofcount.forEach((el2,i)=>{
+
+el2.textContent=format(receipe.ingredients[i].count);
+
+
+});
+
+
+};
 
 
 
