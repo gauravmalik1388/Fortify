@@ -6,7 +6,12 @@ searchResList:document.querySelector('.results__list'),
 seachres:document.querySelector('.results'),
 searchrespages:document.querySelector('.results__pages'),
 //Receipes
-Receipedetailingredinets:document.querySelector('.recipe')
+Receipedetailingredinets:document.querySelector('.recipe'),
+shoppinglist:document.querySelector('.shopping__list'),
+shoppinglistdeletebutton:document.querySelector('.shopping__delete'),
+Likes:document.querySelector('.recipe__love'),
+Likemenu:document.querySelector('.likes__field'),
+likespanel:document.querySelector('.likes__list')
 
 };
 
