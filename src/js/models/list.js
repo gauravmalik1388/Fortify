@@ -5,7 +5,7 @@ export default class list{
 
 constructor(){
 
-this.list=[];
+this.items=[];
 
 }
 
@@ -24,17 +24,19 @@ ingredients
 
 
 }
-this.list.push(item);
-return list;
+
+this.items.push(item);
+
+return item;
 
 };
 
 deleteitem(id){
 
-const delitem=this.item.findIndex(el=>el.id===id);
+const delitem=this.items.findIndex(el=>el.id===id);
 
-this.list.splice(delitem);
-
+this.items.splice(delitem,1);
+console.log(this.items);
 
 };
 
@@ -51,4 +53,4 @@ this.list.find(el2=>el2.id===id).count=count;
 
 
 
-}
+};

@@ -19,6 +19,7 @@ this.ingredients =res.data.recipe.ingredients;
 this.title=res.data.recipe.title;
 this.author=res.data.recipe.publisher;
 this.img=res.data.recipe.image_url;
+console.log(this.img);
 this.url=res.data.recipe.source_url;
 
 

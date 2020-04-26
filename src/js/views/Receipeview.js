@@ -14,16 +14,16 @@ const format=count=>{
 //destructring
 
 if(count){ 
-const [int,dec]=count.toString().split('.').map(el2=>parseInt(el2,10));
-if(!dec) return count;
+const [int,dec1]=count.toString().split('.').map(el2=>parseInt(el2,10));
+if(!dec1) return count;
 
 
 if(int ===0){
-const fr =new Fraction(dec);
+const fr =new Fraction(dec1);
 return `${fr.numerator}/${fr.denominator}`;
 }
 else {
-console.log(dec);
+console.log(dec1);
 const fr =new Fraction(count-int);
 return `${int} ${fr.numerator}/${fr.denominator}`;
 
@@ -51,7 +51,7 @@ const createingredients=ingredients=>
 `
 ;
 
-export const renderingredients=receipe=>{
+export const renderingredients=(receipe,isliked)=>{
 
 const markup=`<figure class="recipe__fig">
                 <img src="${receipe.img}" alt="${receipe.title}" class="recipe__img">
@@ -90,7 +90,7 @@ const markup=`<figure class="recipe__fig">
                 </div>
                 <button class="recipe__love">
                     <svg class="header__likes">
-                        <use href="img/icons.svg#icon-heart-outlined"></use>
+                        <use href="img/icons.svg#icon-heart${isliked?'':'-outlined'}"></use>
                     </svg>
                 </button>
             </div>
@@ -106,7 +106,7 @@ ${receipe.ingredients.map(el=>createingredients(el)).join('')}
 
                     </ul>
 
-                <button class="btn-small recipe__btn">
+                <button class="btn-small recipe__btn--add">
                     <svg class="search__icon">
                         <use href="img/icons.svg#icon-shopping-cart"></use>
                     </svg>
@@ -152,7 +152,7 @@ elements.Receipedetailingredinets.innerHTML='';
 
 
 export const update_Serving_ingredients=receipe=>{
-console.log('Hellooooooooooooooooooooooo');
+
 //Updating the servings
 document.querySelector('.recipe__info-data--people').textContent =receipe.serving;
 

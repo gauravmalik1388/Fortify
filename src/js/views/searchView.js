@@ -15,7 +15,8 @@ elements.searchinput.value='';
 
 
 //limit the length of the title
-const limitthetitle=(title,limit=17)=>{
+export const limitthetitle=(title,limit=17)=>{
+    console.log('1111111111hello');
 const array1=[];
 if(title.length>17){
 title.split('').reduce((acc,cur)=>{
