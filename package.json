@@ -21,7 +21,7 @@
     "url": "https://github.com/gauravmalik1388/Fortify/issues"
   },
   "dependencies": {
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "fractional": "^1.0.0",
     "gh-pages": "^2.2.0",
     "save-dev": "0.0.1-security",
